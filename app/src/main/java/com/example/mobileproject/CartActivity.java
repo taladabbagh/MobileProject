@@ -2,8 +2,12 @@ package com.example.mobileproject;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +19,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartActivity extends AppCompatActivity {
+public class CartActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ArrayList<String> cartList = new ArrayList<>();
 
@@ -23,6 +27,7 @@ public class CartActivity extends AppCompatActivity {
     private Button checkoutBtn;
     private Button removeBtn;
 
+    private Spinner spinner;
     private double totalCost = 0.0;
 
     RecyclerView mrecyclerView;
@@ -38,6 +43,12 @@ public class CartActivity extends AppCompatActivity {
 
         initData();
         initRecyclerView();
+
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.locations, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemClickListener(this);
 
         cartList = new ArrayList<>();
         bagItemListTextView = findViewById(R.id.bagtv);
@@ -79,5 +90,11 @@ public class CartActivity extends AppCompatActivity {
 
         watchList.add(new ModelClass(R.drawable.casio,"casio sho","120$","1",R.drawable.trash));
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String choice = parent.getItemAtPosition(position).toString();
+        Toast.makeText(getApplicationContext(),choice, Toast.LENGTH_SHORT).show();
     }
 }
