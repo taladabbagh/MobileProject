@@ -68,12 +68,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         }
 
-        public void setData(int resource, String name, String msg, String time,String line) {
+        public void setData(int resource, String name, String pricee, String quantityy,String line) {
 
             imageView.setImageResource(resource);
             watchname.setText(name);
-            price.setText(msg);
-            quantity.setText(time);
+            price.setText(pricee);
+            quantity.setText(quantityy);
             imgBtn.setImageResource(R.drawable.trash);
 
 

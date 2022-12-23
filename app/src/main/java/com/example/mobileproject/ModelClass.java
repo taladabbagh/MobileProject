@@ -11,13 +11,13 @@ public class ModelClass {
 
 
 
-    ModelClass (int imageview ,String watchname,String price,String quantity,String imageBtn)
+    ModelClass (int imageview , String watchname, String price, String quantity, int imageBtn)
     {
         this.imageview=imageview;
         this.watchname=watchname;
         this.price=price;
         this.quantity=quantity;
-        this.imageBtn=imageBtn;
+        this.imageBtn= String.valueOf(imageBtn);
     }
 
     public int getImageview() {

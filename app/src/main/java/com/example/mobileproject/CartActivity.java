@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +21,13 @@ public class CartActivity extends AppCompatActivity {
 
     private TextView bagItemListTextView;
     private Button checkoutBtn;
+    private Button removeBtn;
 
     private double totalCost = 0.0;
 
     RecyclerView mrecyclerView;
     LinearLayoutManager layoutManager;
-    List<ModelClass> userList;
+    List<ModelClass> watchList;
     Adapter adapter;
 
 
@@ -33,18 +35,23 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
         initData();
         initRecyclerView();
 
-
+        cartList = new ArrayList<>();
         bagItemListTextView = findViewById(R.id.bagtv);
         checkoutBtn = findViewById(R.id.checkoutbtn);
+   //     removeBtn = findViewById(R.id.removeFromCartImg);
 
+        File img= null;
+        Watch watch = new Watch(12, "casio",15.00, "casio", "2021","M",img);
 
         checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+          String watch= cartList.toString();
 
             }
         });
@@ -56,7 +63,7 @@ public class CartActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         mrecyclerView.setLayoutManager(layoutManager);
-        adapter=new Adapter(userList);
+        adapter=new Adapter(watchList);
         mrecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -64,21 +71,13 @@ public class CartActivity extends AppCompatActivity {
 
     private void initData() {
 
-        userList = new ArrayList<>();
+        watchList = new ArrayList<>();
 
-//        userList.add(new ModelClass(R.drawable.gi,"Anjali","How are you?","10:45 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.bo,"Brijesh","I am fine","15:08 pm","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.boy,"Sam","You Know?","1:02 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.girl,"Divya","How are you?","12:55 pm","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.gi,"Simran","This is Easy","13:50 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.boy,"Karan","I am Don","1:08 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.bo,"Sameer","You Know this?","4:02 am","_______________________________________"));
+        watchList.add(new ModelClass(R.drawable.casio,"casio go","500$","1",R.drawable.trash));
+
+        watchList.add(new ModelClass(R.drawable.casio,"casio what","100$","1",R.drawable.trash));
+
+        watchList.add(new ModelClass(R.drawable.casio,"casio sho","120$","1",R.drawable.trash));
 
     }
 }
