@@ -51,11 +51,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/emptycartTV"
+                android:id="@+id/emptywishlistTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Your cart is empty!"
+                android:text="Your wishlist is empty!"
                 android:textSize="32sp"
                 android:visibility="gone" />
 
@@ -64,13 +64,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="My Cart"
+                android:text="My Wishlist"
                 android:textAlignment="center"
                 android:textColor="#8B0000"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -112,7 +113,7 @@
                 android:background="#8B0000"
                 android:fontFamily="@font/cagliostro"
                 android:gravity="center"
-                android:text="CheckOut"
+                android:text="Add To Cart"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 

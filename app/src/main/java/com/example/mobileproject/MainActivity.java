@@ -19,21 +19,17 @@ import com.google.android.material.navigation.NavigationBarView;
 
 
 public class MainActivity extends AppCompatActivity{
-    private TextView bagItemListTextView;
-    private Button checkoutBtn;
 
-    private ArrayList<String> bagItemList = new ArrayList<>();
-    private double totalCost = 0.0;
-    Watch[] watches = new Watch[3];
+    private ArrayList<String> watches = new ArrayList<>();
+    private ArrayList<String> cartList = new ArrayList<>();
+    private ArrayList<String> wishList = new ArrayList<>();
+
     BottomNavigationView bottomnavView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        bagItemListTextView = findViewById(R.id.bagtv);
-        checkoutBtn = findViewById(R.id.checkoutbtn);
 
         replaceFragment(new CartFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -53,15 +49,6 @@ public class MainActivity extends AppCompatActivity{
                     break;
             }
             return true;
-        });
-
-        checkoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-            }
         });
 
     }
